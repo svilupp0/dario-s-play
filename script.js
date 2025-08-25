@@ -608,6 +608,208 @@ const questions = {
             ],
             correct: 1
         }
+    ],
+    5: [ // Livello 5: Fattori che influenzano la crescita microbica
+        {
+            question: "Qual è il valore di aw dell'acqua pura?",
+            answers: [
+                "aw = 0",
+                "aw = 0.5",
+                "aw = 1.0",
+                "aw = 2.0"
+            ],
+            correct: 2
+        },
+        {
+            question: "Quale valore di aw è considerato il limite minimo per la crescita della maggior parte dei batteri patogeni?",
+            answers: [
+                "aw = 0.85",
+                "aw = 0.90",
+                "aw = 0.95",
+                "aw = 0.99"
+            ],
+            correct: 2
+        },
+        {
+            question: "Quali microrganismi sono più resistenti a bassi valori di aw?",
+            answers: [
+                "Batteri Gram-negativi",
+                "Virus",
+                "Muffe xerofite",
+                "Batteri sporigeni"
+            ],
+            correct: 2
+        },
+        {
+            question: "Cosa succede all'attività dell'acqua quando si aggiunge sale agli alimenti?",
+            answers: [
+                "Aumenta",
+                "Rimane invariata",
+                "Diminuisce",
+                "Diventa negativa"
+            ],
+            correct: 2
+        },
+        {
+            question: "Quale pH è considerato neutro?",
+            answers: [
+                "pH = 5",
+                "pH = 6",
+                "pH = 7",
+                "pH = 8"
+            ],
+            correct: 2
+        },
+        {
+            question: "Quali microrganismi preferiscono ambienti acidi (pH basso)?",
+            answers: [
+                "Batteri patogeni",
+                "Lieviti e muffe",
+                "Virus",
+                "Batteri alcalofili"
+            ],
+            correct: 1
+        },
+        {
+            question: "Qual è l'intervallo di temperatura ottimale per i microrganismi mesofili?",
+            answers: [
+                "0-15°C",
+                "15-45°C",
+                "45-65°C",
+                "65-80°C"
+            ],
+            correct: 1
+        },
+        {
+            question: "Come vengono chiamati i microrganismi che crescono a temperature inferiori a 20°C?",
+            answers: [
+                "Termofili",
+                "Mesofili",
+                "Psicrofili",
+                "Ipertermofili"
+            ],
+            correct: 2
+        },
+        {
+            question: "Quale fattore è determinante per la crescita dei microrganismi anaerobi?",
+            answers: [
+                "Presenza di ossigeno",
+                "Assenza di ossigeno",
+                "Alta temperatura",
+                "Basso pH"
+            ],
+            correct: 1
+        },
+        {
+            question: "Cosa rappresenta il potenziale redox (Eh) di un alimento?",
+            answers: [
+                "Il contenuto di acqua",
+                "La capacità di cedere o acquisire elettroni",
+                "La temperatura di conservazione",
+                "Il contenuto di sale"
+            ],
+            correct: 1
+        },
+        {
+            question: "Quali microrganismi sono favoriti da un basso potenziale redox?",
+            answers: [
+                "Microrganismi aerobi",
+                "Microrganismi anaerobi",
+                "Solo lieviti",
+                "Solo muffe"
+            ],
+            correct: 1
+        },
+        {
+            question: "Qual è l'aw minima per la crescita di Staphylococcus aureus?",
+            answers: [
+                "aw = 0.83",
+                "aw = 0.86",
+                "aw = 0.90",
+                "aw = 0.95"
+            ],
+            correct: 1
+        },
+        {
+            question: "Come si può ridurre l'aw in un alimento?",
+            answers: [
+                "Aggiungendo acqua",
+                "Riducendo il sale",
+                "Essiccamento o aggiunta di soluti",
+                "Aumentando la temperatura"
+            ],
+            correct: 2
+        },
+        {
+            question: "Quale categoria di alimenti ha generalmente aw più bassa?",
+            answers: [
+                "Alimenti freschi",
+                "Alimenti disidratati",
+                "Alimenti surgelati",
+                "Alimenti in salamoia"
+            ],
+            correct: 1
+        },
+        {
+            question: "Cosa significa il termine 'alofilo' riferito ai microrganismi?",
+            answers: [
+                "Che amano le alte temperature",
+                "Che amano il sale",
+                "Che amano l'acidità",
+                "Che amano l'ossigeno"
+            ],
+            correct: 1
+        },
+        {
+            question: "Quale valore di aw blocca la crescita di quasi tutti i microrganismi patogeni?",
+            answers: [
+                "aw < 0.60",
+                "aw < 0.70",
+                "aw < 0.85",
+                "aw < 0.95"
+            ],
+            correct: 2
+        },
+        {
+            question: "Come influisce la combinazione di più fattori (temperatura, pH, aw) sulla crescita microbica?",
+            answers: [
+                "Non ha effetti",
+                "Ha effetti additivi",
+                "Ha effetti sinergici (moltiplicativi)",
+                "Ha solo effetti negativi"
+            ],
+            correct: 2
+        },
+        {
+            question: "Qual è l'aw tipica del pane fresco?",
+            answers: [
+                "aw = 0.70-0.80",
+                "aw = 0.85-0.90",
+                "aw = 0.94-0.97",
+                "aw = 0.99"
+            ],
+            correct: 2
+        },
+        {
+            question: "Perché i microrganismi osmofili sono importanti nell'industria alimentare?",
+            answers: [
+                "Crescono solo in acqua pura",
+                "Resistono ad alte concentrazioni di zucchero",
+                "Non crescono mai",
+                "Crescono solo a temperature elevate"
+            ],
+            correct: 1
+        },
+        {
+            question: "Quale strategia combinata è più efficace per prevenire la crescita microbica?",
+            answers: [
+                "Solo refrigerazione",
+                "Solo acidificazione",
+                "Tecnologia delle barriere multiple",
+                "Solo disidratazione"
+            ],
+            correct: 2
+        }
     ]
 };
 
@@ -837,6 +1039,16 @@ function startLevel(level) {
     showQuestion();
 }
 
+// Funzione per mescolare array (Fisher-Yates shuffle)
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
 function showQuestion() {
     if (currentQuestion >= levelQuestions.length) {
         showCompletion();
@@ -852,11 +1064,25 @@ function showQuestion() {
     answersContainer.innerHTML = '';
     eliminatedAnswers = [];
     
-    questionData.answers.forEach((answer, index) => {
+    // Crea array di oggetti con risposta e indice originale
+    const answersWithIndex = questionData.answers.map((answer, index) => ({
+        text: answer,
+        originalIndex: index,
+        isCorrect: index === questionData.correct
+    }));
+
+    // Mescola le risposte
+    const shuffledAnswers = shuffleArray(answersWithIndex);
+
+    // Trova il nuovo indice della risposta corretta
+    const newCorrectIndex = shuffledAnswers.findIndex(answer => answer.isCorrect);
+
+    // Crea i bottoni con l'ordine mescolato
+    shuffledAnswers.forEach((answerObj, index) => {
         const button = document.createElement('button');
         button.className = 'answer-btn';
-        button.textContent = answer;
-        button.onclick = () => selectAnswer(index, button);
+        button.textContent = answerObj.text;
+        button.onclick = () => selectAnswer(index, button, newCorrectIndex);
         answersContainer.appendChild(button);
     });
 
@@ -868,9 +1094,9 @@ function showQuestion() {
     updateProgress();
 }
 
-function selectAnswer(selectedIndex, buttonElement) {
-    const questionData = levelQuestions[currentQuestion];
-    const buttons = document.querySelectorAll('.answer-btn');
+    function selectAnswer(selectedIndex, buttonElement, correctIndex = null) {
+        const questionData = levelQuestions[currentQuestion];
+        const buttons = document.querySelectorAll('.answer-btn');
     
     buttons.forEach(btn => btn.style.pointerEvents = 'none');
     
@@ -890,16 +1116,20 @@ function selectAnswer(selectedIndex, buttonElement) {
         showPowerupNotification('Bonus velocità! ⚡');
     }
     
-    if (selectedIndex === questionData.correct) {
+    // Usa correctIndex se fornito (per risposte mischiate), altrimenti usa l'indice originale
+    const actualCorrectIndex = correctIndex !== null ? correctIndex : levelQuestions[currentQuestion].correct;
+
+    if (selectedIndex === actualCorrectIndex) {
         buttonElement.classList.add('correct');
         score += pointsToAdd;
         createParticles('🎉');
     } else {
         buttonElement.classList.add('incorrect');
-        buttons[questionData.correct].classList.add('correct');
+        buttons[actualCorrectIndex].classList.add('correct');
         createParticles('💔');
     }
-    
+    document.getElementById('score').textContent = score;
+        
     setTimeout(() => {
         currentQuestion++;
         showQuestion();
