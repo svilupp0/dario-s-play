@@ -1538,5 +1538,5 @@ function createBackgroundParticles() {
     }, 3000);
 }
 
-// Inizializza animazioni di sfondo
+// Inizializza animazioni di background
 createBackgroundParticles();
