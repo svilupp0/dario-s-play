@@ -1,4 +1,3 @@
-
 // Database delle domande per i livelli
 const questions = {
     1: [ // Livello 1: Il Regno dei Microrganismi
@@ -220,7 +219,7 @@ const questions = {
             question: "Quale soglia di cellule microbiche indica un alimento CONTAMINATO?",
             answers: [
                 "> 10² UFC/g",
-                "> 10³ UFC/g", 
+                "> 10³ UFC/g",
                 "> 10⁴ UFC/g",
                 "> 10⁵ UFC/g"
             ],
@@ -1015,7 +1014,7 @@ function startLevel(level) {
     currentQuestion = 0;
     score = 0;
     levelQuestions = [...questions[level]]; // Copia le domande
-    
+
     // Reset powerups per ogni livello
     powerups = {
         fiftyFifty: 2,
@@ -1028,13 +1027,13 @@ function startLevel(level) {
         doublePoints: false
     };
     eliminatedAnswers = [];
-    
+
     document.getElementById('levelSelector').style.display = 'none';
     document.getElementById('gameArea').style.display = 'block';
     document.getElementById('currentLevel').textContent = level;
     document.getElementById('totalQuestions').textContent = levelQuestions.length;
     document.getElementById('completionMessage').style.display = 'none';
-    
+
     updatePowerupCounts();
     showQuestion();
 }
@@ -1059,7 +1058,7 @@ function showQuestion() {
     document.getElementById('question').textContent = questionData.question;
     document.getElementById('questionNumber').textContent = currentQuestion + 1;
     document.getElementById('score').textContent = score;
-    
+
     const answersContainer = document.getElementById('answers');
     answersContainer.innerHTML = '';
     eliminatedAnswers = [];
@@ -1098,17 +1097,18 @@ function showQuestion() {
         const questionData = levelQuestions[currentQuestion];
         const buttons = document.querySelectorAll('.answer-btn');
     
+
     buttons.forEach(btn => btn.style.pointerEvents = 'none');
-    
+
     let pointsToAdd = 10;
-    
+
     // Applica bonus double points
     if (activePowerups.doublePoints) {
         pointsToAdd = 20;
         activePowerups.doublePoints = false;
         showPowerupNotification('Punti raddoppiati! 💎');
     }
-    
+
     // Applica bonus time bonus (punti extra)
     if (activePowerups.timeBonus) {
         pointsToAdd += 5;
@@ -1168,7 +1168,7 @@ function initializeCrossword() {
     currentWord = null;
     completedWords.clear();
     crosswordStartTime = Date.now();
-    
+
     // Crea la griglia
     for (let row = 0; row < 16; row++) {
         for (let col = 0; col < 16; col++) {
@@ -1176,7 +1176,7 @@ function initializeCrossword() {
             cell.className = 'crossword-cell';
             cell.dataset.row = row;
             cell.dataset.col = col;
-            
+
             if (crosswordData.grid[row][col] === '') {
                 cell.classList.add('blocked');
             } else {
@@ -1186,11 +1186,11 @@ function initializeCrossword() {
                 input.addEventListener('focus', handleCellFocus);
                 cell.appendChild(input);
             }
-            
+
             grid.appendChild(cell);
         }
     }
-    
+
     // Aggiungi numeri alle celle
     crosswordData.words.forEach(word => {
         const cell = grid.children[word.row * 16 + word.col];
@@ -1201,7 +1201,7 @@ function initializeCrossword() {
             cell.appendChild(number);
         }
     });
-    
+
     // Crea gli indizi
     createClues();
     updateCrosswordTimer();
@@ -1210,16 +1210,16 @@ function initializeCrossword() {
 function createClues() {
     const horizontalClues = document.getElementById('horizontalClues');
     const verticalClues = document.getElementById('verticalClues');
-    
+
     horizontalClues.innerHTML = '';
     verticalClues.innerHTML = '';
-    
+
     crosswordData.words.forEach(word => {
         const clueElement = document.createElement('div');
         clueElement.className = 'clue';
         clueElement.textContent = `${word.number}. ${word.clue}`;
         clueElement.onclick = () => selectWord(word);
-        
+
         if (word.direction === 'horizontal') {
             horizontalClues.appendChild(clueElement);
         } else {
@@ -1230,19 +1230,19 @@ function createClues() {
 
 function selectWord(word) {
     const grid = document.getElementById('crosswordGrid');
-    
+
     // Rimuovi highlight precedenti
     Array.from(grid.children).forEach(cell => {
         cell.classList.remove('word-highlight', 'active');
     });
-    
+
     // Rimuovi active dalle clues
     document.querySelectorAll('.clue').forEach(clue => {
         clue.classList.remove('active');
     });
-    
+
     currentWord = word;
-    
+
     // Evidenzia la parola
     for (let i = 0; i < word.word.length; i++) {
         const row = word.direction === 'horizontal' ? word.row : word.row + i;
@@ -1250,11 +1250,11 @@ function selectWord(word) {
         const cell = grid.children[row * 16 + col];
         cell.classList.add('word-highlight');
     }
-    
+
     // Attiva la clue
     const clues = document.querySelectorAll('.clue');
     clues[crosswordData.words.indexOf(word)].classList.add('active');
-    
+
     // Focus sulla prima cella vuota
     const firstEmptyCell = findFirstEmptyCell(word);
     if (firstEmptyCell) {
@@ -1281,12 +1281,12 @@ function handleCellInput(event) {
     const cell = input.parentElement;
     const row = parseInt(cell.dataset.row);
     const col = parseInt(cell.dataset.col);
-    
+
     input.value = input.value.toUpperCase();
-    
+
     // Controlla se le parole sono completate
     checkCompletedWords();
-    
+
     // Muovi al prossimo input se currentWord è selezionata
     if (currentWord && input.value) {
         moveToNextCell(row, col);
@@ -1296,7 +1296,7 @@ function handleCellInput(event) {
 function handleCellFocus(event) {
     const cell = event.target.parentElement;
     cell.classList.add('active');
-    
+
     // Rimuovi active da altre celle
     document.querySelectorAll('.crossword-cell').forEach(c => {
         if (c !== cell) c.classList.remove('active');
@@ -1305,22 +1305,22 @@ function handleCellFocus(event) {
 
 function moveToNextCell(currentRow, currentCol) {
     if (!currentWord) return;
-    
+
     const grid = document.getElementById('crosswordGrid');
     const wordIndex = crosswordData.words.indexOf(currentWord);
-    
+
     // Trova la posizione corrente nella parola
     let positionInWord = -1;
     for (let i = 0; i < currentWord.word.length; i++) {
         const row = currentWord.direction === 'horizontal' ? currentWord.row : currentWord.row + i;
         const col = currentWord.direction === 'horizontal' ? currentWord.col + i : currentWord.col;
-        
+
         if (row === currentRow && col === currentCol) {
             positionInWord = i;
             break;
         }
     }
-    
+
     // Muovi alla prossima cella
     if (positionInWord < currentWord.word.length - 1) {
         const nextRow = currentWord.direction === 'horizontal' ? currentWord.row : currentWord.row + positionInWord + 1;
@@ -1332,26 +1332,26 @@ function moveToNextCell(currentRow, currentCol) {
 
 function checkCompletedWords() {
     const grid = document.getElementById('crosswordGrid');
-    
+
     crosswordData.words.forEach((word, index) => {
         let isComplete = true;
         let currentAnswer = '';
-        
+
         for (let i = 0; i < word.word.length; i++) {
             const row = word.direction === 'horizontal' ? word.row : word.row + i;
             const col = word.direction === 'horizontal' ? word.col + i : word.col;
             const cell = grid.children[row * 16 + col];
             const input = cell.querySelector('input');
-            
+
             currentAnswer += input.value;
             if (!input.value || input.value !== word.word[i]) {
                 isComplete = false;
             }
         }
-        
+
         if (isComplete && !completedWords.has(index)) {
             completedWords.add(index);
-            
+
             // Marca le celle come corrette
             for (let i = 0; i < word.word.length; i++) {
                 const row = word.direction === 'horizontal' ? word.row : word.row + i;
@@ -1359,17 +1359,17 @@ function checkCompletedWords() {
                 const cell = grid.children[row * 16 + col];
                 cell.classList.add('correct');
             }
-            
+
             // Marca la clue come completata
             const clues = document.querySelectorAll('.clue');
             clues[index].classList.add('completed');
-            
+
             createParticles('🎉');
         }
     });
-    
+
     document.getElementById('crosswordProgress').textContent = completedWords.size;
-    
+
     // Controlla se il cruciverba è completato
     if (completedWords.size === crosswordData.words.length) {
         showCrosswordCompletion();
@@ -1382,35 +1382,35 @@ function showCrosswordCompletion() {
     const minutes = Math.floor(totalTime / 60);
     const seconds = totalTime % 60;
     const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    
+
     document.getElementById('finalTime').textContent = timeString;
     document.getElementById('crosswordComplete').style.display = 'block';
-    
+
     createParticles('🎊');
 }
 
 function updateCrosswordTimer() {
     if (document.getElementById('crosswordArea').style.display !== 'block') return;
-    
+
     const currentTime = Date.now();
     const elapsed = Math.floor((currentTime - crosswordStartTime) / 1000);
     const minutes = Math.floor(elapsed / 60);
     const seconds = elapsed % 60;
     const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    
+
     document.getElementById('crosswordTime').textContent = timeString;
-    
+
     setTimeout(updateCrosswordTimer, 1000);
 }
 
 function usePowerup(type) {
     if (powerups[type] <= 0) return;
-    
+
     const button = document.getElementById(type);
     if (button.classList.contains('disabled') || button.classList.contains('used')) return;
-    
+
     powerups[type]--;
-    
+
     switch(type) {
         case 'fiftyFifty':
             useFiftyFifty();
@@ -1425,7 +1425,7 @@ function usePowerup(type) {
             useDoublePoints();
             break;
     }
-    
+
     updatePowerupCounts();
 }
 
@@ -1434,13 +1434,13 @@ function useFiftyFifty() {
     const buttons = document.querySelectorAll('.answer-btn');
     const correctIndex = questionData.correct;
     const incorrectIndices = [];
-    
+
     buttons.forEach((btn, index) => {
         if (index !== correctIndex && !eliminatedAnswers.includes(index)) {
             incorrectIndices.push(index);
         }
     });
-    
+
     // Elimina 2 risposte sbagliate casuali
     const toEliminate = incorrectIndices.sort(() => 0.5 - Math.random()).slice(0, 2);
     toEliminate.forEach(index => {
@@ -1448,7 +1448,7 @@ function useFiftyFifty() {
         buttons[index].onclick = null;
         eliminatedAnswers.push(index);
     });
-    
+
     showPowerupNotification('2 risposte eliminate! 🎯');
 }
 
@@ -1475,7 +1475,7 @@ function updatePowerupCounts() {
     document.getElementById('skipQuestionCount').textContent = powerups.skipQuestion;
     document.getElementById('timeBonusCount').textContent = powerups.timeBonus;
     document.getElementById('doublePointsCount').textContent = powerups.doublePoints;
-    
+
     // Disabilita powerups esauriti
     Object.keys(powerups).forEach(key => {
         const button = document.getElementById(key);
@@ -1492,7 +1492,7 @@ function showPowerupNotification(message) {
     notification.className = 'powerup-notification';
     notification.textContent = message;
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         notification.remove();
     }, 2000);
@@ -1507,7 +1507,7 @@ function createParticles(emoji) {
             particle.style.left = Math.random() * window.innerWidth + 'px';
             particle.style.top = Math.random() * window.innerHeight + 'px';
             document.body.appendChild(particle);
-            
+
             setTimeout(() => {
                 particle.remove();
             }, 2000);
@@ -1529,9 +1529,9 @@ function createBackgroundParticles() {
         particle.style.zIndex = '-1';
         particle.textContent = particles[Math.floor(Math.random() * particles.length)];
         particle.style.animation = 'particleFloat 10s linear forwards';
-        
+
         document.body.appendChild(particle);
-        
+
         setTimeout(() => {
             particle.remove();
         }, 10000);
