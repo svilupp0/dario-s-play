@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,7 @@
             text-align: center;
             margin-bottom: 30px;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header h1 {
@@ -53,7 +54,7 @@
             padding: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             border: 3px solid transparent;
             position: relative;
             overflow: hidden;
@@ -66,7 +67,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.5s;
         }
 
@@ -77,7 +78,7 @@
         .level-card:hover {
             transform: translateY(-10px);
             border-color: #4ecdc4;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .level-card h3 {
@@ -120,7 +121,7 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         .progress-bar {
@@ -130,7 +131,7 @@
             border-radius: 10px;
             margin-bottom: 30px;
             overflow: hidden;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .progress-fill {
@@ -177,7 +178,7 @@
         .answer-btn:hover {
             border-color: #4ecdc4;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .answer-btn.correct {
@@ -212,12 +213,12 @@
             cursor: pointer;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .back-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .completion-message {
@@ -248,7 +249,7 @@
             font-size: 0.9rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
             min-width: 120px;
@@ -256,7 +257,7 @@
 
         .powerup:hover:not(.disabled) {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .powerup.disabled {
@@ -277,7 +278,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.5s;
         }
 
@@ -286,7 +287,7 @@
         }
 
         .powerup-count {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             width: 25px;
             height: 25px;
@@ -310,14 +311,29 @@
             font-weight: bold;
             z-index: 1001;
             animation: powerupNotification 2s ease-out forwards;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes powerupNotification {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-            80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+
+            20% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
         }
 
         .answer-btn.eliminated {
@@ -333,8 +349,15 @@
         }
 
         @keyframes timeBonusPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(52, 152, 219, 0.5); }
-            50% { box-shadow: 0 0 30px rgba(52, 152, 219, 0.8); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(52, 152, 219, 0.8);
+            }
         }
 
         /* Stili per il cruciverba */
@@ -343,7 +366,7 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         .crossword-grid {
@@ -489,25 +512,33 @@
         }
 
         @keyframes particleFloat {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
             }
-            
+
             .level-card {
                 padding: 20px;
             }
-            
+
             .answers {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="game-container">
         <div class="header">
@@ -518,7 +549,8 @@
         <div id="levelSelector" class="level-selector">
             <div class="level-card" onclick="startLevel(1)">
                 <h3><span class="emoji">🦠</span>Livello 1: Il Regno dei Microrganismi</h3>
-                <p>Scopri il ruolo dei microrganismi negli alimenti e impara a distinguere tra patogeni, non patogeni e microrganismi benefici.</p>
+                <p>Scopri il ruolo dei microrganismi negli alimenti e impara a distinguere tra patogeni, non patogeni e
+                    microrganismi benefici.</p>
                 <div class="level-topics">
                     <span class="topic-tag">Ruolo dei microrganismi</span>
                     <span class="topic-tag">Carta microbiologica</span>
@@ -528,7 +560,8 @@
 
             <div class="level-card" onclick="startLevel(2)">
                 <h3><span class="emoji">🌍</span>Livello 2: Origine e Colonizzazione</h3>
-                <p>Esplora come i microrganismi colonizzano gli alimenti e comprendi le diverse fonti di contaminazione.</p>
+                <p>Esplora come i microrganismi colonizzano gli alimenti e comprendi le diverse fonti di contaminazione.
+                </p>
                 <div class="level-topics">
                     <span class="topic-tag">Flora microbica</span>
                     <span class="topic-tag">Origine endogena/esogena</span>
@@ -538,7 +571,8 @@
 
             <div class="level-card" onclick="startLevel(3)">
                 <h3><span class="emoji">⚠️</span>Livello 3: Contaminazione Alimentare</h3>
-                <p>Impara i diversi tipi di contaminazione e le loro cause, dalla contaminazione primaria a quella crociata.</p>
+                <p>Impara i diversi tipi di contaminazione e le loro cause, dalla contaminazione primaria a quella
+                    crociata.</p>
                 <div class="level-topics">
                     <span class="topic-tag">Rischi chimici/fisici/biologici</span>
                     <span class="topic-tag">Contaminazione primaria/secondaria</span>
@@ -548,7 +582,8 @@
 
             <div class="level-card" onclick="startLevel(4)">
                 <h3><span class="emoji">🔬</span>Livello 4: Microrganismi Indicatori</h3>
-                <p>Scopri i microrganismi indicatori di salubrità, qualità e tipicità negli alimenti e il loro ruolo nel controllo microbiologico.</p>
+                <p>Scopri i microrganismi indicatori di salubrità, qualità e tipicità negli alimenti e il loro ruolo nel
+                    controllo microbiologico.</p>
                 <div class="level-topics">
                     <span class="topic-tag">Indicatori di salubrità</span>
                     <span class="topic-tag">Indicatori di qualità</span>
@@ -580,7 +615,7 @@
 
         <div id="gameArea" class="game-area">
             <button class="back-btn" onclick="backToMenu()">← Torna al Menu</button>
-            
+
             <div class="score-area">
                 <div>
                     <strong>Livello: <span id="currentLevel">1</span></strong>
@@ -626,7 +661,7 @@
 
         <div id="crosswordArea" class="crossword-container">
             <button class="back-btn" onclick="backToMenu()">← Torna al Menu</button>
-            
+
             <div class="crossword-stats">
                 <div><strong>Cruciverba Microbiologico</strong></div>
                 <div><strong>Completate: <span id="crosswordProgress">0</span>/19</strong></div>
@@ -656,4 +691,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
